@@ -1,0 +1,1 @@
+const express = require("express"); const path = require("path"); const app = express(); app.use(express.json()); app.use(express.static(__dirname)); app.post("/api/order", function(req, res){ res.json({success:false}); }); app.listen(3000, function(){ console.log("Server running at http://localhost:3000"); });

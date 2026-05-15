@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cakewalk With Taruna — Silchar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-main">The Cakewalk</span>
+        <span class="logo-sub">With Taruna</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#order" class="nav-cta">Order Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" onclick="closeMobile()">Story</a>
+      <a href="#menu" onclick="closeMobile()">Menu</a>
+      <a href="#gallery" onclick="closeMobile()">Gallery</a>
+      <a href="#reviews" onclick="closeMobile()">Reviews</a>
+      <a href="#order" onclick="closeMobile()">Order Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <img src="cake3.jpeg" alt="The Cakewalk With Taruna" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Handcrafted with Love · Silchar, Assam</p>
+      <h1 class="hero-title reveal delay-1">
+        <em>The Cakewalk</em>
+        <span>With Taruna</span>
+      </h1>
+      <p class="hero-tagline reveal delay-2">13 years of baking joy — one cake at a time</p>
+      <div class="hero-actions reveal delay-3">
+        <a href="#menu" class="btn-primary">Explore Menu</a>
+        <a href="#order" class="btn-ghost">Place an Order</a>
+      </div>
+    </div>
+    <div class="hero-rating reveal delay-3">
+      <span class="rating-stars">★★★★★</span>
+      <span class="rating-text">4.8 · 141 Google Reviews</span>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-in">
+        <img src="cake1.jpeg" alt="Taruna's signature cakes" />
+        <div class="about-img-accent"></div>
+      </div>
+      <div class="about-text fade-in">
+        <p class="section-eyebrow">Our Story</p>
+        <h2 class="section-title">Baked from the <em>Heart</em></h2>
+        <p class="body-text">The Cakewalk With Taruna began in 2012 as a dream born in a small kitchen in Ambikapatty, Silchar — and over 13 years, that dream has grown into one of the most loved cake destinations in the region.</p>
+        <p class="body-text">Taruna crafts every cake fresh to order — from elegant custom birthday creations and anniversary cakes to delicate doughnuts and cupcakes. No mass production, no shortcuts. Just honest ingredients, artistic passion, and love baked into every layer.</p>
+        <p class="body-text">Eggless options always available. Home delivery across Silchar.</p>
+        <div class="about-signature">— Taruna</div>
+        <div class="about-badges">
+          <div class="badge">🎂 13 Years of Baking</div>
+          <div class="badge">🥚 Eggless Available</div>
+          <div class="badge">🚚 Home Delivery</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament-divider"><span>✦</span></div>
+
+  <!-- MENU -->
+  <section id="menu" class="section section-alt">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Our Offerings</p>
+      <h2 class="section-title">The <em>Menu</em></h2>
+      <p class="section-sub">Every item crafted fresh to order. Customised exactly the way you want it.</p>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="cake5.jpeg" alt="Custom Birthday Cake" />
+          <div class="menu-badge">Signature</div>
+        </div>
+        <div class="menu-card-body">
+          <h3>Custom Birthday Cake</h3>
+          <p>Personalised cakes with photo prints, character toppers, buttercream or fondant finish. Your vision, our craft.</p>
+          <div class="menu-footer">
+            <span class="price">From ₹800</span>
+            <a href="#order" class="btn-mini">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="cake4.jpeg" alt="Anniversary Cake" />
+          <div class="menu-badge">Popular</div>
+        </div>
+        <div class="menu-card-body">
+          <h3>Anniversary & Wedding Cake</h3>
+          <p>Romantic heart cakes, couple silhouette designs, and calendar-date cakes to make your day unforgettable.</p>
+          <div class="menu-footer">
+            <span class="price">From ₹1,200</span>
+            <a href="#order" class="btn-mini">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="cake2.jpeg" alt="Designer Buttercream Cake" />
+        </div>
+        <div class="menu-card-body">
+          <h3>Designer Buttercream Cake</h3>
+          <p>Gold splatter, floral rosettes, geometric hearts — elegant cakes for every special occasion.</p>
+          <div class="menu-footer">
+            <span class="price">From ₹900</span>
+            <a href="#order" class="btn-mini">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="cake1.jpeg" alt="Photo Tribute Cake" />
+        </div>
+        <div class="menu-card-body">
+          <h3>Photo & Tribute Cake</h3>
+          <p>Edible photo prints and personalised message cakes — perfect for birthdays, retirements, and milestones.</p>
+          <div class="menu-footer">
+            <span class="price">From ₹1,000</span>
+            <a href="#order" class="btn-mini">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?w=600&q=80" alt="Cupcakes and Doughnuts" />
+        </div>
+        <div class="menu-card-body">
+          <h3>Cupcakes & Doughnuts</h3>
+          <p>Soft, fresh and delicious — cupcake boxes and artisan doughnuts perfect for gifting or celebrations.</p>
+          <div class="menu-footer">
+            <span class="price">From ₹350 / box</span>
+            <a href="#order" class="btn-mini">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card fade-in">
+        <div class="menu-card-img">
+          <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&q=80" alt="Brownies and Pastries" />
+        </div>
+        <div class="menu-card-body">
+          <h3>Brownies & Pastries</h3>
+          <p>Dense fudge brownies and fresh cream pastries — everyday indulgences made with quality ingredients.</p>
+          <div class="menu-footer">
+            <span class="price">From ₹80 / piece</span>
+            <a href="#order" class="btn-mini">Order</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="ornament-divider"><span>✦</span></div>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">The Gallery</p>
+      <h2 class="section-title">Made with <em>Artistry</em></h2>
+      <p class="section-sub">A few of our favourite creations — each one made fresh to order.</p>
+    </div>
+    <div class="gallery-grid fade-in">
+      <div class="gallery-item tall">
+        <img src="cake1.jpeg" alt="Family tribute cake" />
+      </div>
+      <div class="gallery-item">
+        <img src="cake2.jpeg" alt="Gold birthday cake" />
+      </div>
+      <div class="gallery-item">
+        <img src="cake3.jpeg" alt="Butterfly buttercream cake" />
+      </div>
+      <div class="gallery-item wide">
+        <img src="cake4.jpeg" alt="Chocolate KitKat birthday cake" />
+      </div>
+      <div class="gallery-item">
+        <img src="cake5.jpeg" alt="Anniversary heart cake" />
+      </div>
+      <div class="gallery-item tall">
+        <img src="cake2.jpeg" alt="Designer cake" />
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="section section-dark">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow light">Google Reviews</p>
+      <h2 class="section-title light">What Our <em>Customers</em> Say</h2>
+      <div class="google-rating fade-in">
+        <span class="g-stars">★★★★★</span>
+        <span class="g-score">4.8</span>
+        <span class="g-count">· 141 reviews on Google</span>
+      </div>
+    </div>
+    <div class="reviews-grid fade-in">
+
+      <div class="review-card featured">
+        <div class="review-stars">★★★★★</div>
+        <p>"For me cake means Taruna di after I shifted to Silchar. We order cake, cupcakes and every possible thing from her on every occasion. You'll be surprised by the quality of cakes you can get here."</p>
+        <div class="review-author">— Sweety Shaw, Silchar</div>
+        <div class="review-tags">
+          <span>Responsiveness</span><span>Quality</span><span>Professionalism</span><span>Value</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"I really like your work. The finishing is very good. Thank you so much for delivery. I think you are the best cake maker in Silchar. Thank you for such a beautiful work."</p>
+        <div class="review-author">— Avhishek Chowdhury, Local Guide</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"I requested a birthday cake and doughnuts at the nth hour and to my delight Taruna responded very positively and ensured it was delivered ON TIME. They were really awesome to taste — soft, fresh and delicious."</p>
+        <div class="review-author">— Vee Kay, Local Guide</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Customised and delivered the cake on time. Taste was delicious."</p>
+        <div class="review-author">— Kannathasan Botany, Silchar</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section id="order" class="section">
+    <div class="order-wrap">
+      <div class="order-info fade-in">
+        <p class="section-eyebrow">Place Your Order</p>
+        <h2 class="section-title">Let's Create <em>Something</em> Beautiful</h2>
+        <p class="body-text">Fill in the form and your order will be sent directly to Taruna via WhatsApp. She'll confirm availability and details within a few hours.</p>
+        <div class="order-contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <span>+91 94014 39292</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span>Kurmi Bunglow Road, Ambikapatty, Silchar – 788004</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🕐</span>
+            <span>Opens at 8:00 AM · Mon–Sat</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🥚</span>
+            <span>Eggless options always available</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="order-form fade-in" id="orderForm">
+        <div class="form-group">
+          <label for="customerName">Your Name</label>
+          <input type="text" id="customerName" name="customerName" placeholder="e.g. Priya Sharma" required />
+        </div>
+        <div class="form-group">
+          <label for="customerPhone">Phone Number</label>
+          <input type="tel" id="customerPhone" name="customerPhone" placeholder="+91 XXXXX XXXXX" required />
+        </div>
+        <div class="form-group">
+          <label for="orderItems">What would you like to order?</label>
+          <textarea id="orderItems" name="orderItems" rows="3" placeholder="e.g. 1kg Custom Birthday Cake (chocolate sponge, photo print)" required></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="preference">Pickup or Delivery?</label>
+            <select id="preference" name="preference" required>
+              <option value="" disabled selected>Select…</option>
+              <option value="Pickup">Pickup</option>
+              <option value="Delivery">Delivery</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="datetime">Date & Time Needed</label>
+            <input type="datetime-local" id="datetime" name="datetime" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="notes">Special Notes / Customisations</label>
+          <textarea id="notes" name="notes" rows="2" placeholder="Flavours, design ideas, eggless preference…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span id="btnText">Send My Order via WhatsApp</span>
+          <span id="btnLoader" class="btn-loader hidden"></span>
+        </button>
+      </form>
+
+      <div class="order-success hidden" id="orderSuccess">
+        <div class="success-icon">✓</div>
+        <h3>Order Sent!</h3>
+        <p>Your order has been sent to Taruna via WhatsApp. She'll be in touch soon to confirm your details.</p>
+        <a href="#menu" class="btn-primary">Back to Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">The Cakewalk With Taruna</div>
+        <p>Handcrafted cakes & confections<br/>made fresh to order since 2012.<br/>Ambikapatty, Silchar, Assam.</p>
+        <div class="footer-rating">⭐ 4.8 · 141 Google Reviews</div>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <a href="#about">Our Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#order">Order Now</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <p>📞 +91 94014 39292</p>
+        <p>📍 Kurmi Bunglow Road,<br/>Ambikapatty, Silchar – 788004</p>
+        <p>🕐 Opens at 8:00 AM</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/thecakewalkwith.taruna" target="_blank">Instagram</a>
+          <a href="https://www.facebook.com/taruna.roy81" target="_blank">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Cakewalk With Taruna. All rights reserved. · Silchar, Assam</p>
+    </div>
+  </footer>
+
+  <a href="#order" class="floating-cta" id="floatingCta">Order Now</a>
+
+  <script src="main.js"></script>
+</body>
+</html>
