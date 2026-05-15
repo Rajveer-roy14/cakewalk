@@ -44,6 +44,52 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+// ── DATETIME RESTRICTIONS ────────────────────────
+const datetimeInput = document.getElementById('datetime');
+
+function setDatetimeConstraints() {
+  const now = new Date();
+  const earliest = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+  const pad = n => String(n).padStart(2, '0');
+  const minStr = `${earliest.getFullYear()}-${pad(earliest.getMonth()+1)}-${pad(earliest.getDate())}T${pad(earliest.getHours())}:${pad(earliest.getMinutes())}`;
+  datetimeInput.min = minStr;
+  const maxDate = new Date(now);
+  maxDate.setFullYear(maxDate.getFullYear() + 1);
+  const maxStr = `${maxDate.getFullYear()}-${pad(maxDate.getMonth()+1)}-${pad(maxDate.getDate())}T21:00`;
+  datetimeInput.max = maxStr;
+}
+
+setDatetimeConstraints();
+
+function showDateError(msg) {
+  let errEl = document.getElementById('datetime-error');
+  if (!errEl) {
+    errEl = document.createElement('p');
+    errEl.id = 'datetime-error';
+    errEl.style.cssText = 'color:#c8956c;font-size:0.78rem;margin-top:0.4rem;font-style:italic;';
+    datetimeInput.parentNode.appendChild(errEl);
+  }
+  errEl.textContent = msg;
+}
+
+datetimeInput.addEventListener('change', () => {
+  if (!datetimeInput.value) return;
+  const selected = new Date(datetimeInput.value);
+  const hours = selected.getHours();
+  const now = new Date();
+  const earliest = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+
+  if (selected < earliest) {
+    showDateError('Please select a time at least 2 hours from now — we need time to bake! 🎂');
+    datetimeInput.value = '';
+  } else if (hours < 9 || hours >= 21) {
+    showDateError('We deliver between 9:00 AM and 9:00 PM. Please pick a time within those hours!');
+    datetimeInput.value = '';
+  } else {
+    showDateError('');
+  }
+});
+
 // ── ORDER FORM ───────────────────────────────────
 const form = document.getElementById('orderForm');
 const submitBtn = document.getElementById('submitBtn');
@@ -54,6 +100,24 @@ const successMsg = document.getElementById('orderSuccess');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
+  const selected = new Date(datetimeInput.value);
+  const now = new Date();
+  const earliest = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+  const hours = selected.getHours();
+
+  if (!datetimeInput.value) {
+    showDateError('Please select a valid delivery date and time.');
+    return;
+  }
+  if (selected < earliest) {
+    showDateError('Please select a time at least 2 hours from now — we need time to bake! 🎂');
+    return;
+  }
+  if (hours < 9 || hours >= 21) {
+    showDateError('We deliver between 9:00 AM and 9:00 PM. Please pick a time within those hours!');
+    return;
+  }
+
   const data = {
     customerName: form.customerName.value.trim(),
     customerPhone: form.customerPhone.value.trim(),
@@ -63,7 +127,6 @@ form.addEventListener('submit', async (e) => {
     notes: form.notes.value.trim()
   };
 
-  // Show loader
   btnText.classList.add('hidden');
   btnLoader.classList.remove('hidden');
   submitBtn.disabled = true;
@@ -74,21 +137,16 @@ form.addEventListener('submit', async (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
-
     const result = await res.json();
-
-    if (res.ok && result.success) {
-      if(result.whatsappLink){window.open(result.whatsappLink,"_blank");}form.classList.add("hidden");
-      successMsg.classList.remove('hidden');
-    } else {
-      throw new Error(result.message || 'Something went wrong');
+    if (result.whatsappLink) {
+      window.open(result.whatsappLink, '_blank');
     }
+    form.classList.add('hidden');
+    successMsg.classList.remove('hidden');
   } catch (err) {
-    // Fallback: open WhatsApp directly if backend fails
     const msg = buildWhatsAppMessage(data);
-    const phone = '919401439292';
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
-    if(result.whatsappLink){window.open(result.whatsappLink,"_blank");}form.classList.add("hidden");
+    window.open(`https://wa.me/919401439292?text=${encodeURIComponent(msg)}`, '_blank');
+    form.classList.add('hidden');
     successMsg.classList.remove('hidden');
   } finally {
     btnText.classList.remove('hidden');
@@ -102,14 +160,7 @@ function buildWhatsAppMessage(data) {
     weekday: 'short', day: 'numeric', month: 'short', year: 'numeric',
     hour: '2-digit', minute: '2-digit'
   }) : 'Not specified';
-
-  return `🧁 NEW ORDER from ${data.customerName}
-📞 ${data.customerPhone}
-🛍️ Items: ${data.orderItems}
-📅 ${data.preference} on ${dt}
-📝 Notes: ${data.notes || 'None'}
-
-— Sent via TheCakewalk website`;
+  return `🧁 NEW ORDER from ${data.customerName}\n📞 ${data.customerPhone}\n🛍️ Items: ${data.orderItems}\n📅 ${data.preference} on ${dt}\n📝 Notes: ${data.notes || 'None'}\n\n— Sent via TheCakewalk website`;
 }
 
 // ── SMOOTH NAV ACTIVE STATE ──────────────────────
