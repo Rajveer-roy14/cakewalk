@@ -78,7 +78,7 @@ form.addEventListener('submit', async (e) => {
     const result = await res.json();
 
     if (res.ok && result.success) {
-      form.classList.add('hidden');
+      if(result.whatsappLink){window.open(result.whatsappLink,"_blank");}form.classList.add("hidden");
       successMsg.classList.remove('hidden');
     } else {
       throw new Error(result.message || 'Something went wrong');
@@ -88,7 +88,7 @@ form.addEventListener('submit', async (e) => {
     const msg = buildWhatsAppMessage(data);
     const phone = '919401439292';
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
-    form.classList.add('hidden');
+    if(result.whatsappLink){window.open(result.whatsappLink,"_blank");}form.classList.add("hidden");
     successMsg.classList.remove('hidden');
   } finally {
     btnText.classList.remove('hidden');
