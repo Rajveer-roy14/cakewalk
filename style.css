@@ -23,8 +23,8 @@
   /* Neutrals */
   --white:         #FFFFFF;
   --off-white:     #FDF8FA;       /* warm white with pink undertone */
-  --dark:          #2A1520;       /* deep plum-dark for text/bg */
-  --dark-surface:  #3A1F2C;       /* slightly lighter dark surface */
+  --dark:          #5C2D45;       /* lighter plum */
+  --dark-surface:  #6E3A55;       /* lighter surface */
   --text-body:     #3D1A28;
   --text-muted:    #8A5068;
 
