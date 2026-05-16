@@ -11,10 +11,10 @@
   --teal-light:    #B2E8E3;       /* pale teal tint */
   --teal-pale:     #E6F8F6;       /* very pale teal bg */
 
-  --magenta:       #E8709E;       /* softened logo pink */
-  --magenta-dark:  #C9558A;       /* hover state */
-  --magenta-light: #F5C0D8;       /* light magenta tint */
-  --magenta-pale:  #FEF2F7;       /* very pale magenta bg */
+  --magenta:       #F4A0C0;       /* soft light pink */
+  --magenta-dark:  #E8709E;       /* hover state — previous main */
+  --magenta-light: #FAD0E4;       /* very light pink tint */
+  --magenta-pale:  #FEF5FA;       /* near-white pink bg */
 
   --blush:         #F9C8C8;       /* logo ribbon banner */
   --blush-dark:    #F0A0A8;       /* deeper blush */
@@ -572,7 +572,7 @@ a { text-decoration: none; color: inherit; }
 .review-card:hover { border-color: rgba(0,180,160,0.45); }
 .review-card.featured {
   border-color: var(--magenta);
-  background: rgba(232, 112, 158, 0.08);
+  background: rgba(244, 160, 192, 0.08);
 }
 .review-stars {
   color: var(--blush);
@@ -826,7 +826,7 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 0.15em;
   text-transform: uppercase;
   padding: 0.9rem 1.8rem;
-  box-shadow: 0 8px 30px rgba(220,80,150,0.38);
+  box-shadow: 0 8px 30px rgba(244,160,192,0.45);
   opacity: 0;
   transform: translateY(20px);
   transition: all var(--transition);
